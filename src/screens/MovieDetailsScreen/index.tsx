@@ -1,6 +1,6 @@
 import { Picker } from '@react-native-picker/picker'
 import React, { useState } from 'react'
-import { FlatList, Image, Pressable, Text, View } from 'react-native'
+import { FlatList, Pressable, Text, View } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
@@ -8,6 +8,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import movie from '../../assets/data/movie'
 import EpisodeItem from '../../components/EpisodeItem'
+import VideoPlayer from '../../components/VideoPlayer'
 import styles from './styles'
 
 const firstSeason = movie.seasons.items[0]
@@ -20,8 +21,8 @@ const MovieDetailsScreen = () => {
   const seasonNames = movie.seasons.items.map(season => season.name)
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: firstEpisode.poster }} />
-      {/* <VideoPlayer episode={currentEpisode} /> */}
+      {/* <Image style={styles.image} source={{ uri: firstEpisode.poster }} /> */}
+      <VideoPlayer episode={currentEpisode} />
       <FlatList
         data={currentSeason.episodes.items}
         renderItem={({ item }) => <EpisodeItem episode={item} />}
