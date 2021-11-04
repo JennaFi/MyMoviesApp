@@ -1,9 +1,15 @@
 import React, { useRef } from 'react'
 import { SafeAreaView } from 'react-native'
 import Video from 'react-native-video'
+import { Episode } from '../../../types'
 import styles from './styles'
 
-const VideoPlayer = () => {
+interface VideoPlayerProps {
+  episode: Episode
+}
+
+const VideoPlayer = (props: VideoPlayerProps) => {
+  const { episode } = props
   const player = useRef(null)
 
   return (
@@ -11,13 +17,14 @@ const VideoPlayer = () => {
       <Video
         style={styles.video}
         source={{
-          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          uri: episode.video,
         }}
         ref={player}
         controls
         resizeMode={'contain'}
+        poster={episode.poster}
         paused={false}
-        onError={e => console.log(e)}
+        onError={(e: any) => console.log(e)}
       />
     </SafeAreaView>
   )
