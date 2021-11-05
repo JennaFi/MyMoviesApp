@@ -11,14 +11,14 @@ const TabOneNavigator = () => {
     <View style={{ flex: 1 }}>
       <HomeStack.Navigator>
         <HomeStack.Screen
-          name="MovieDetailsScreen"
-          component={MovieDetailsScreen}
-          options={{ headerShown: false }}
-        />
-        <HomeStack.Screen
           name="HomeScreen"
           component={HomeScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, title: '' }}
+        />
+        <HomeStack.Screen
+          name="MovieDetailsScreen"
+          component={MovieDetailsScreen}
+          options={{ title: ''}}
         />
       </HomeStack.Navigator>
     </View>
