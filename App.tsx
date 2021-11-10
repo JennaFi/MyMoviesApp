@@ -7,11 +7,15 @@
  *
  * @format
  */
+import Amplify from 'aws-amplify'
 import React from 'react'
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native'
 import 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+import config from './aws-exports'
 import Navigation from './src/navigation'
+
+Amplify.configure(config)
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
