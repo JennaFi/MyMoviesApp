@@ -8,6 +8,7 @@
  * @format
  */
 import Amplify from 'aws-amplify'
+import { withAuthenticator } from 'aws-amplify-react-native'
 import React from 'react'
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native'
 import 'react-native-gesture-handler'
@@ -16,6 +17,7 @@ import config from './aws-exports'
 import Navigation from './src/navigation'
 
 Amplify.configure(config)
+// Auth.configure(config)
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -35,4 +37,4 @@ const App = () => {
   )
 }
 
-export default App
+export default withAuthenticator(App)
